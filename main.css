@@ -54,3 +54,82 @@ nav {
         width: 45%;
     }
 }
+
+.burger {
+    display: none;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: #c5c6c7;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px){
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {
+        position: absolute;
+        right: 0px;
+        height: 100%;
+        top: 8vh;
+        background-color: #1f2833;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-list li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navListFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes navListunfade {
+    from {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.activate .layer1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.activate .layer2 {
+    opacity: 0;
+}
+
+.activate .layer3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
