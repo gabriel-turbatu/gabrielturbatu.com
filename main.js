@@ -4,19 +4,19 @@ function sleep(ms) {
 
 const slideshow = [
     {
-        name: "url('photos/app\ dev.png')",
+        name: "url('photos/app\ dev.jpg')",
         text1: "APPLICATION",
         text2: "DEVELOPMENT",
         pos: 0,
     },
     {
-        name: "url('photos/Simple\ macbook\ no\ text.png')",
+        name: "url('photos/Simple\ macbook\ no\ text.jpg')",
         text1: "UX/UI",
         text2: "SOLUTIONS",
         pos: 0,
     },
     {
-        name: "url('photos/it\ cons.png')",
+        name: "url('photos/it\ cons.jpg')",
         text1: "IT",
         text2: "CONSULTING",
         pos: 1,
@@ -45,10 +45,32 @@ const navSlide = () => {
 
 navSlide();
 
+var iter = 0;
+const slider = document.querySelector('.slider');
+const text1 = document.querySelector('.text1');
+const text2 = document.querySelector('.text2');
+setInterval(() => {
+    slider.style.backgroundImage = slideshow[iter].name;
+    text1.innerHTML = slideshow[iter].text1;
+    text2.innerHTML = slideshow[iter].text2;
+    console.log(window.innerWidth)
+    if(window.innerWidth > 768){
+        if(slideshow[iter].pos == 1) {
+            text1.style.marginLeft = "150px";
+            text2.style.marginLeft = "0px";
+        }
+        else {
+            text1.style.marginLeft = "0px";
+            text2.style.marginLeft = "150px";
+        }
+    }
+    
+    if(iter == slideshow.length - 1) iter = 0;
+    else iter += 1;
+}, 5000);
+
 const sliderFunct = async () => {
-    const slider = document.querySelector('.slider');
-    const text1 = document.querySelector('.text1');
-    const text2 = document.querySelector('.text2');
+    
     for(var iter = 0; iter < slideshow.length; iter++){
         slider.style.backgroundImage = slideshow[iter].name;
         text1.innerHTML = slideshow[iter].text1;
