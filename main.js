@@ -16,7 +16,7 @@ const slideshow = [
         pos: 0,
     },
     {
-        name: "url('photos/pexels-josh-sorenson-1714208.jpg')",
+        name: "url('photos/it\ cons.png')",
         text1: "IT",
         text2: "CONSULTING",
         pos: 1,

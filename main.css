@@ -11,6 +11,7 @@
     width: 100%;
     background-image: url("photos/Simple\ macbook\ no\ text.png");
     background-position: center;
+    transition: background-image 0.8s ease-in-out;
 }
 
 .slider:after {
@@ -29,6 +30,7 @@
     font-size: 150px;
     color: #66fcf1;
     -webkit-filter: drop-shadow(2px 2px 2px black);
+    transition: fade 1s ease-in-out;
 }
 
 .text2 {
@@ -86,7 +88,8 @@ nav {
         width: 45%;
     }
     .text {
-        font-size: 120px;
+        font-size: 110px;
+        font-weight: 600;
     }
 }
 
