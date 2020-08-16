@@ -53,14 +53,18 @@ const sliderFunct = async () => {
         slider.style.backgroundImage = slideshow[iter].name;
         text1.innerHTML = slideshow[iter].text1;
         text2.innerHTML = slideshow[iter].text2;
-        if(slideshow[iter].pos == 1) {
-            text1.style.marginLeft = "150px";
-            text2.style.marginLeft = "0px";
+        console.log(window.innerWidth)
+        if(window.innerWidth > 768){
+            if(slideshow[iter].pos == 1) {
+                text1.style.marginLeft = "150px";
+                text2.style.marginLeft = "0px";
+            }
+            else {
+                text1.style.marginLeft = "0px";
+                text2.style.marginLeft = "150px";
+            }
         }
-        else {
-            text1.style.marginLeft = "0px";
-            text2.style.marginLeft = "150px";
-        }
+        
         if(iter == slideshow.length - 1) iter = -1;
         await sleep(10000);
     }
