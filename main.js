@@ -1,3 +1,18 @@
+window.onload = function () {
+    var imgs = new Array();
+    for(var i = 0; i < 3; i++) imgs.push(new Image());
+    imgs[0].src = 'photos/app\ dev.jpg';
+    imgs[1].src = 'photos/Simple\ macbook\ no\ text.jpg';
+    imgs[2].src = 'photos/it\ cons.jpg';
+
+    for(var img of imgs){
+        img.onload = function () {
+            var div0 = document.querySelector('.slider')
+            div0.style.backgroundImage = "url(" + img.src + ")";
+        };
+    }
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -22,6 +37,12 @@ const slideshow = [
         pos: 1,
     }
 ]
+
+function preloader() {
+    
+}
+
+preloader()
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');
@@ -49,6 +70,7 @@ var iter = 0;
 const slider = document.querySelector('.slider');
 const text1 = document.querySelector('.text1');
 const text2 = document.querySelector('.text2');
+
 setInterval(() => {
     slider.style.backgroundImage = slideshow[iter].name;
     text1.innerHTML = slideshow[iter].text1;
@@ -70,7 +92,6 @@ setInterval(() => {
 }, 5000);
 
 const sliderFunct = async () => {
-    
     for(var iter = 0; iter < slideshow.length; iter++){
         slider.style.backgroundImage = slideshow[iter].name;
         text1.innerHTML = slideshow[iter].text1;
@@ -91,5 +112,3 @@ const sliderFunct = async () => {
         await sleep(10000);
     }
 }
-
-sliderFunct();
